@@ -5,7 +5,10 @@ public class Main {
         while (true) {
             System.out.println("Press 1 for binary to denary");
             System.out.println("Press 2 for denary to binary");
-            System.out.println("Press 3 for binary to hexidecimal");
+            System.out.println("Press 3 for binary to hexadecimal");
+            System.out.println("Press 4 for hexadecimal to binary");
+            System.out.println("Press 5 for hexadecimal to denary");
+            System.out.println("Press 5 for denary to hexadecimal");
             String choice = input.nextLine();
             if (choice.equals("1")) {
                 System.out.println("Enter your binary number:");
@@ -20,17 +23,22 @@ public class Main {
             if (choice.equals("3")) {
                 System.out.println("Enter your binary number:");
                 String binToHex = input.nextLine();
-                System.out.println(binToHex + " in hexidecimal is " + binaryToHex(binToHex));
+                System.out.println(binToHex + " in hexadecimal is " + binaryToHex(binToHex));
             }
             if (choice.equals("4")) {
-                System.out.println("Enter your hexidecimal number");
+                System.out.println("Enter your hexadecimal number");
                 String hexToBin = input.nextLine();
                 System.out.println(hexToBin+" in binary is "+hexToBinary(hexToBin));
             }
             if (choice.equals("5")) {
-                System.out.println("Enter your hexidecimal number:");
+                System.out.println("Enter your hexadecimal number:");
                 String hexToDen = input.nextLine();
-                //System.out.println(hexToDen+" in denary is "+hexToDenary(hexToDen));
+                System.out.println(hexToDen+" in denary is "+hexToDenary(hexToDen));
+            }
+            if (choice.equals("6")) {
+                System.out.println("Enter your denary number:");
+                String denToHex = input.nextLine();
+                System.out.println(denToHex+" in hexadecimal is "+denToHex(denToHex));
             }
             System.out.println("Press enter to continue");
             input.nextLine();
@@ -50,7 +58,6 @@ public class Main {
             else if (hex.charAt(x) == 'E') {hexOut = "14";}
             else if (hex.charAt(x) == 'F') {hexOut = "15";}
             else {hexOut = Character.toString(hex.charAt(x));}
-            System.out.println(hex.charAt(x));
             x++;
             String binaryTemp = denaryToBinary(Integer.parseInt(hexOut));
             binaryOut += binaryTemp.substring(4,8);
@@ -58,10 +65,8 @@ public class Main {
         return binaryOut;
     }
 
-    public static String hexToDen(String hex){
-
-
-        return "";
+    public static String hexToDenary(String hex){
+        return binaryToDenary(hexToBinary(hex));
     }
 
     public static String binaryToHex(String binary) {
